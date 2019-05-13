@@ -1,0 +1,29 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-13 10:31:43
+ * @LastEditTime: 2019-05-13 10:33:23
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>River-第一个Hello Vue程序</title>
+        
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+		</div>
+		<script src="./lib/vue-2.4.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					message:'Hello Vue!'
+				}
+			});
+		</script>
+	</body>
+</html>
