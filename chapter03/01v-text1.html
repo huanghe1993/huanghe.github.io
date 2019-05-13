@@ -1,0 +1,32 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-13 17:03:49
+ * @LastEditTime: 2019-05-13 17:05:24
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="demo" v-text="'今年是'+year+'年'+month+'月'"></div>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                year: new Date().getFullYear(),
+                month: new Date().getMonth() + 1
+            }
+        });
+    </script>
+</body>
+
+</html>
