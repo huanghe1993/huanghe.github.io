@@ -1,0 +1,70 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-13 15:52:17
+ * @LastEditTime: 2019-05-13 15:52:37
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="list in msg">
+                {{list.name}}
+                {{list.age}}
+                {{list.addr}}
+            </li>
+        </ol>
+
+    </div>
+    <script src="vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app', //
+            data: {
+                msg: [{
+                        name: '张三1',
+                        age: '18',
+                        addr: 'vue1'
+                    },
+                    {
+                        name: '张三2',
+                        age: '18',
+                        addr: 'vue2'
+                    },
+                    {
+                        name: '张三3',
+                        age: '18',
+                        addr: 'vue3'
+                    },
+                    {
+                        name: '张三4',
+                        age: '18',
+                        addr: 'vue4'
+                    },
+                    {
+                        name: '张三5',
+                        age: '18',
+                        addr: 'vue5'
+                    },
+                    {
+                        name: '张三6',
+                        age: '18',
+                        addr: 'vue6'
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>
