@@ -1,0 +1,45 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-13 15:24:10
+ * @LastEditTime: 2019-05-13 15:28:24
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>将 data 中的数据渲染到页面上</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <hr />
+        {{msg2}}
+        <hr />
+        {{msg}}
+        <hr />
+        {{arr}}
+        <hr />
+        {{json}}
+    </div>
+    <script src="./lib/vue-2.4.0.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                msg2:10,
+                msg:true,
+                arr:['apple','banner','orange'],
+                json:{a:'张三',b:'李四',c:'王五'}
+            }
+        });
+    </script>
+</body>
+
+</html>
