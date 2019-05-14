@@ -1,0 +1,61 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-14 17:12:01
+ * @LastEditTime: 2019-05-14 17:38:39
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跑马灯的效果</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="浪起来" @click='lang'>
+        <input type="button" value="低调" @click='stop'>
+        <h4>{{msg}}</h4>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '畏缩发育别浪~~~!',
+                intervalId:null //在data中定义定时器id
+            },
+            methods: {
+                lang: function () {
+                    //setInterval和setTimeout的回调函数中this的指向都是window,所以
+                    //这里先对当前的对象保留一份
+                    var _this = this;
+                    if (this.intervalId != null) return;
+                    //使用箭头函数，内部的this永远指向外部的this,所以此时可以使用this
+                    this.intervalId = setInterval(() => {
+                        // 拿到msg数据,使用this，代表当前实例
+                        var start = _this.msg.substring(0, 1);
+                        var end = _this.msg.substring(1);
+                        // 重新赋值,vm实例，会监听自己身上data中所有数据的改变
+                        //只要数据发生变化，就会自动把最新的数据从data中同步到页面
+                        _this.msg = end + start;
+                    }, 500);
+
+                },
+                stop(){
+                    clearInterval(this.intervalId);
+                    // 清除定时器之后重新置intervalId为null
+                    this.intervalId =null;
+
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
