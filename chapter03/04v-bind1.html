@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-14 16:43:14
+ * @LastEditTime: 2019-05-14 16:46:34
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind是vue中，提供用于绑定属性的指令 -->
+        <input type="button" value="按钮" v-bind:title='myTitle'>
+    </div>
+
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                myTitle: '自己定义的title'
+            }
+        });
+    </script>
+</body>
+
+</html>
