@@ -1,0 +1,28 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-14 15:53:14
+ * @LastEditTime: 2019-05-14 15:54:04
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="demo" v-html="msg"></div>
+    <script>
+        var app=new Vue({
+            el:'#demo',
+            data:{
+                msg:'<img src="./lib/logo.png">'
+            }
+        });
+    </script>
+</body>
+</html>
