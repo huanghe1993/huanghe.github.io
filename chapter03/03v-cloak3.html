@@ -2,18 +2,37 @@
  * @Description: 
  * @Author: river
  * @Date: 2019-05-14 16:27:30
- * @LastEditTime: 2019-05-14 16:27:35
+ * @LastEditTime: 2019-05-14 16:28:56
  * @LastEditors: huanghe
  -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    测试
+    <div id="app" v-cloak>
+        {{msg}}
+    </div>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123'
+            }
+        });
+    </script>
 </body>
+
 </html>
