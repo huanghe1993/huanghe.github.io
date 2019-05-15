@@ -1,0 +1,62 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-15 17:04:44
+ * @LastEditTime: 2019-05-15 17:05:26
+ * @LastEditors: huanghe
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+     <script src="./lib/vue-2.4.0.js"></script>
+ </head>
+ <body>
+        <div id="demo">
+                <ol>
+                    <li v-for='value in arr'>
+                        {{value}}
+                    </li>
+                </ol>
+                <hr />
+                <ol>
+                    <li v-for='(value,index) in arr'>
+                        {{value}} {{index}}
+                    </li>
+                </ol>
+                <hr />
+                <ol>
+                    <!--值和索引-->
+                    <li v-for='(item,index) in json'>
+                        {{item}}  {{index}} 
+                    </li>
+                </ol>
+                <hr />
+                <ol>
+                    <!--val是值，key是键-->
+                    <li v-for='(val,key) in json'>
+                        {{val}}  {{key}} 
+                    </li>
+                </ol>
+                <hr />
+                <ol>
+                    <!--val是值，key是键，index是索引-->
+                    <li v-for='(val,key,index) in json'>
+                        {{val}} {{key}} {{index}}
+                    </li>
+                </ol>
+            </div>
+            <script type="text/javascript">
+                new Vue({
+                    el: '#demo',
+                    data: {
+                        arr:['apple','banana','orange','pear'],
+                        json:{a:'张三',b:'李四',c:'王五'}
+                    }
+                })
+            </script>
+ </body>
+ </html>
