@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-15 10:27:14
+ * @LastEditTime: 2019-05-15 15:28:00
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件修饰符</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style type="text/css">
+        .inner {
+            height: 150px;
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="inner" @click="div1Handler">
+            /*.stop阻止冒泡  */
+            <input type="button" value="戳" @click.stop  = "btnHandler">
+        </div>
+    </div>
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            methods: { //methods定义vue实例所有可用的方法
+                div1Handler(){
+                    console.log("触发inner div的点击事件");
+                },
+                btnHandler(){
+                    console.log("触发btn的点击事件");
+                }
+            },
+        });
+    </script>
+</body>
+</html>

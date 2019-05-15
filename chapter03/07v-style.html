@@ -1,0 +1,62 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-15 16:25:05
+ * @LastEditTime: 2019-05-15 16:37:10
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style type="text/css">
+        .red{
+            color: red;
+        }
+        .thin {
+            font-weight: 200;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .active {
+            /* 字符间距 */
+            letter-spacing: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind属性绑定的方式，类名必须使用单引号 -->
+        <h1 :class="['red','thin']">h1标题-----1</h1>
+
+        <!-- 可以使用三元表达式 -->
+        <h1 :class="['red','italic',flag?'active':'']">h1标题------2</h1>
+
+        <!-- 数组中嵌套对象 -->
+        <h1 :class="['red','italic',{'active':flag}}]">h1标题------3</h1>
+
+        <!--直接的使用对象，前面的是属性，属性是类名，属性可以带引号，可以不带  -->
+        <h1 :class="{red:true, italic:true, active:true, thin:true}">h1标题------4</h1>
+    </div>
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag:false,
+            },
+            methods: { //methods定义vue实例所有可用的方法
+                
+            },
+        });
+    </script>
+</body>
+</html>
