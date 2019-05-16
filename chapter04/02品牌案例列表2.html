@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: river
  * @Date: 2019-05-15 17:30:32
- * @LastEditTime: 2019-05-16 10:28:55
+ * @LastEditTime: 2019-05-16 11:25:07
  * @LastEditors: huanghe
  -->
 <!DOCTYPE html>
@@ -68,7 +68,7 @@
                 <tr v-for="item in search(keywords)" :key="item.id">
                     <td>{{ item.id}}</td>
                     <td>{{ item.name}}</td>
-                    <td>{{ item.ctime}}</td>
+                    <td>{{ item.ctime | dateFormate()}}</td>
                     <td>
                         <a href="" @click.prevent='del(item.id)'>删除</a>
                     </td>
@@ -78,6 +78,27 @@
 
     </div>
     <script>
+        // 时间格式化,pattern=""ES6语法的默认值
+        Vue.filter('dateFormate', function (dateStr, pattern = "") {
+            // 根据给定的时间字符串，得到特定的时间
+            var dt = new Date(dateStr);
+
+            var y = dt.getFullYear();
+            var m = dt.getMonth() + 1;
+            var d = dt.getDay() + 1;
+
+            if (pattern.toLowerCase() === 'yyyy-mm-dd') {
+                return `${y}-${m}-${d}`;
+            } else {
+                var hh = dt.getHours();
+                var mm = dt.getMinutes();
+                var ss = dt.getSeconds();
+                return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+            }
+        })
+
+
+
         //创建Vue实例，得到ViewModel
         var vm = new Vue({
             el: '#app',
