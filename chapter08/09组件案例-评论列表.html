@@ -1,0 +1,120 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-25 16:48:25
+ * @LastEditTime: 2019-05-25 18:13:41
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <cmt-box></cmt-box>
+
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key="item.id">
+                <span class="badge">评论人：{{item.user}}</span>
+                {{item.content}}
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <template id="tmpl">
+        <div>
+
+            <div class="form-group">
+                <label>评论人：</label>
+                <input type="text" class="form-control" v-model="user">
+            </div>
+
+            <div class="form-group">
+                <label>评论内容：</label>
+                <textarea class="form-control" v-model="content"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="button" value="发表评论" class="btn btn-primary" @click="postComment">
+            </div>
+
+        </div>
+    </template>
+
+    
+    <script>
+        var commentBox = {
+            data() {
+                return {
+                    user: '',
+                    content: '',
+                }
+            },
+            template: '#tmpl',
+            methods: {
+                postComment() {
+                    // 发表评论的方法
+                    var comment = { id: Date.now(), user: this.user, content: this.content }
+                    // 从localStorage中
+                    var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+                    // 把最新的数据push到这个数组中
+                    list.unshift(comment);
+                    // 序列化一个字符串存起来,保存最新的数据
+                    localStorage.setItem('cmts',JSON.stringify(list));
+                    this.user='';
+                    this.content='';
+                }
+            },
+        }
+
+
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [{
+                        id: Date.now(),
+                        user: '李白',
+                        content: '天生我材必有用！'
+                    },
+                    {
+                        id: Date.now(),
+                        user: '玄策',
+                        content: '鞭子抽你！'
+                    },
+                    {
+                        id: Date.now(),
+                        user: '马克',
+                        content: '来来来！我的剑！'
+                    },
+                ]
+            },
+            methods: { //methods定义vue实例所有可用的方法
+                loadComments(){
+                    // 从本地的localStorage中加载数据
+                    var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+                }
+            },
+            components: {
+                'cmt-box': commentBox
+            }
+        });
+    </script>
+</body>
+
+</html>
