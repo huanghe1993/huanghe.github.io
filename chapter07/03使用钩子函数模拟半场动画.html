@@ -1,0 +1,68 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-19 10:40:25
+ * @LastEditTime: 2019-05-19 11:19:42
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style type="text/css">
+        .ball {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="半场动画" @click='flag= !flag'>
+
+        <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter">
+            <div class="ball" v-show='flag'></div>
+        </transition>
+    </div>
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false,
+            },
+
+            methods: {
+                // 动画钩子函数，实现半场动画，el表示要执行动画的DOM元素
+                beforeEnter(el) {
+                    // 动画入场之前
+                    el.style.transform = "translate(0,0)"
+                },
+                enter(el,done) {
+                    // 没有实际的作用
+                    el.offsetWidth
+                    // enter 表示动画 开始之后的样式，这里，可以设置小球完成动画之后的，结束状态
+                    el.style.transform = "translate(150px, 450px)"
+                    el.style.transition = 'all 1s ease'
+                    done();
+
+                },
+                afterEnter(el) {
+                    // 动画完成之后，会调用 afterEnter
+                    // console.log('ok')
+                    this.flag = !this.flag
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

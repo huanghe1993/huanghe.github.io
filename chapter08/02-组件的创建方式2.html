@@ -1,0 +1,48 @@
+<!--
+ * @Description: 
+ * @Author: river
+ * @Date: 2019-05-24 20:40:00
+ * @LastEditTime: 2019-05-24 20:56:52
+ * @LastEditors: huanghe
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用组件，直接把组件的名称以HTML标签的形式，引入到页面中即可 -->
+        
+        <mycom2></mycom2>
+    </div>
+    <script>
+
+        
+        Vue.component('mycom2',{
+            template:'<h3>这是使用Vue.component创建全局组件</h3>'
+        });
+
+
+        
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            methods: { //methods定义vue实例所有可用的方法
+                
+            },
+        });
+    </script>
+</body>
+</html>
